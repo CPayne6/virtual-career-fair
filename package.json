@@ -1,0 +1,28 @@
+{
+  "name": "virtual-career-fair",
+  "version": "1.0.0",
+  "description": "Virtual career fairs with organized video calls and candidate feedback.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"nodemon app.js\" \"cd client && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CPayne6/virtual-career-fair.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CPayne6/virtual-career-fair/issues"
+  },
+  "homepage": "https://github.com/CPayne6/virtual-career-fair#readme",
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
