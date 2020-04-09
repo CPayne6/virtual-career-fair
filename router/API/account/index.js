@@ -9,10 +9,11 @@ const user = require('./user');
 
 const router = express.Router();
 
-router.use('admin', admin);
-router.use('recruiter', recruiter);
-router.use('user', user);
+router.use('/admin', admin);
+router.use('/recruiter', recruiter);
+router.use('/user', user);
 
 // can add middleware to the router
 
-exports = router;
+
+module.exports = router;
