@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 
 require('dotenv').config(); // Import environment variables
 
+require('./router')(app);   // Initialize all routes
+
 app.get('/', (req, res) => {
     res.send('Hello');
 });

@@ -5,12 +5,13 @@ const payment = require('./payment');
 // Add more for each new folder
 
 // configure each route on a different router
-exports = (app) => {
-    
-    const apiRouter = express.Router();
 
-    apiRouter.use('/account', account);
-    apiRouter.use('/payment', payment);
     
-    app.use('/api', apiRouter);
-}
+const router = express.Router();
+
+router.use('/account', account);
+router.use('/payment', payment);
+
+module.exports = router;
+
+ 
