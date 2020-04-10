@@ -1,9 +1,11 @@
 const jwt = require('jsonwebtoken');
-const expiryTime = '7d';
+
+const refreshExpiryTime = '7d';
+const standardExpiryTime = '15m';
 
 
-function write(payload, newTime){
-    return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: newTime | expiryTime});
+function write(payload, refresh){
+    return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: (refresh ? refreshExpiryTime : standardExpiryTime) });
 }
 
 // TODO incorporate refresh tokens
