@@ -4,13 +4,13 @@ module.exports = {
             social:{
                 github: 'https://github.com/CPayne6',
                 linkedin: 'https://www.linkedin.com/in/chrisryanpayne/',
-                website: 'https://jamesgmcdonald.com',
-                email: 'js69@queensu.ca',
+                website: 'https://jamesgmcdonald.com'
             },
             phone:{
                 primary: '905-999-9995',
                 secondary: '905-999-6666'
-            }
+            },
+            email: 'js69@queensu.ca'
         },
         about: {
             desc: 'Hardworking SIMP',
