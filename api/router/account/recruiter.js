@@ -1,5 +1,5 @@
 const express = require('express');
-const recruiterAuth = require('../middleware/authentication/recruiter');
+const recruiterAuth = require('../../middleware/auth/recruiter');
 
 const router = express.Router();    //  router operating on path '/api/account/recruiter/login'
 

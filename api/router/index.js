@@ -5,8 +5,6 @@ const payment = require('./payment');
 // Add more for each new folder
 
 // configure each route on a different router
-
-    
 const router = express.Router();
 
 router.use('/account', account);

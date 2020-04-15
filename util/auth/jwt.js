@@ -23,7 +23,7 @@ function read(token, refresh){
     }
 }
 
-exports = {
+module.exports = {
     write,
     read
 }

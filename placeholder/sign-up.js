@@ -1,11 +1,19 @@
 module.exports = {
     user:{
-        name:{
-            title: 'Mr',
-            first: 'John',
-            last:'Smith'
+        contact:{
+            social:{
+                email: 'js69@queensu.ca',
+            },
+            phone:{}
         },
-        email: 'js69@queensu.ca'
+        about: {
+            name:{
+                title: 'Mr',
+                first: 'John',
+                last:'Smith'
+            }
+        },
+        location: {}
     },
     recruiter:{
         name:{

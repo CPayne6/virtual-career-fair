@@ -1,5 +1,5 @@
 const express = require('express');
-const adminAuth = require('../middleware/authentication/admin');
+const adminAuth = require('../../middleware/auth/admin');
 
 const router = express.Router();    //  router operating on path '/api/account/admin/login'
 
