@@ -1,17 +1,15 @@
 module.exports = {
     user:{
-        contact:{
-            social:{
-                email: 'js69@queensu.ca',
-            },
-            phone:{}
+        social:{
+            email: 'js69@queensu.ca',
         },
-        about: {
-            name:{
-                title: 'Mr',
-                first: 'John',
-                last:'Smith'
-            }
+        phone:{
+
+        },
+        name:{
+            title: 'Mr',
+            first: 'John',
+            last:'Smith'
         },
         location: {}
     },
