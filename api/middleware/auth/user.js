@@ -1,5 +1,10 @@
 
 module.exports = (req, res, next) => {
-    console.log('authenticating the user');
+    if(req.token){
+        console.log('user is authorized');
+    }
+    else{
+        console.log('user is not authorized');
+    }
     next();
 }

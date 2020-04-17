@@ -6,8 +6,9 @@ const router = require('./api/router'); // import routes
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-app.use(bodyParser.json()); // Set up body and cookie parser (for data transfer and authentication respectively)
 app.use(cookieParser());
+app.use(bodyParser.json()); // Set up body and cookie parser (for data transfer and authentication respectively)
+
 
 app.use('/api', router);    // Initialize all routes
 

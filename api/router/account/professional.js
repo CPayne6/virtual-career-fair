@@ -1,5 +1,4 @@
 const express = require('express');
-const adminAuth = require('../../middleware/auth/admin');
 
 const signin = require('../../../placeholder/sign-in').admin;
 const signup = require('../../../placeholder/sign-up').admin;
@@ -17,8 +16,6 @@ router.post('/signup', (req, res) => {
 router.post('/logout', () => {
     res.send({success:true}); //  Temporary response for test
 });
-
-router.use(adminAuth);
 
 module.exports = router;
 

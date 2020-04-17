@@ -5,7 +5,9 @@ const standardExpiryTime = '15m';
 
 
 function write(payload, refresh){
-    return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: (refresh ? refreshExpiryTime : standardExpiryTime) });
+    let test = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: (refresh ? refreshExpiryTime : standardExpiryTime) });
+    console.log(test);
+    return test;
 }
 
 // TODO incorporate refresh tokens
