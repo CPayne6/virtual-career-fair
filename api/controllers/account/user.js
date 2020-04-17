@@ -1,6 +1,7 @@
 const cookies = require('../../../util/cookies');
 const db = require('../../../db');
 const userModel = require('../../../db/models/User');   // Temporary import remove when db controller is configured
+const placeholder = require('../../../placeholder/sign-in').user;
 
 async function signup(req, res){
     let test = new userModel({  // for test purposes
@@ -43,15 +44,15 @@ async function signup(req, res){
 }
 
 async function login(req, res){
-    const body = req.body;
-    let doc = await db.user.findByEmail('test@queensu.ca');
-    console.log('jwt: '+req.token);
-    let token = req.jwt?{...req.token, user: doc._id}:{user:doc._id};
-    console.log('testjwt');
-    console.log(token);
-    cookies(token,res);
+    // const body = req.body;
+    // let doc = await db.user.findByEmail('test@queensu.ca');
+    // console.log('jwt: '+req.token);
+    // let token = req.jwt?{...req.token, user: doc._id}:{user:doc._id};
+    // console.log('testjwt');
+    // console.log(token);
+    // cookies(token,res);
 
-    res.send(token);
+    res.send();
 }
 
 module.exports = {
