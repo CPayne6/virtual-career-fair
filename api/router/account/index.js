@@ -11,7 +11,7 @@ const router = express.Router();
 
 //router.use(jwtAuth); TODO add back (commented out for placeholder)
 
-router.use('/admin', admin);
+router.use('/professional', admin);
 router.use('/user', user);
 
 // can add middleware to the router
