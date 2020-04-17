@@ -9,7 +9,7 @@ const user = require('./user');
 
 const router = express.Router();
 
-router.use(jwtAuth);
+//router.use(jwtAuth); TODO add back (commented out for placeholder)
 
 router.use('/admin', admin);
 router.use('/user', user);
