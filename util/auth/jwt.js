@@ -5,23 +5,37 @@ const standardExpiryTime = '15m';
 
 
 function write(payload, refresh){
-    let test = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: (refresh ? refreshExpiryTime : standardExpiryTime) });
-    console.log(test);
-    return test;
+    try{
+        if(refresh){
+            return jwt.sign(payload, process.env.JWT_REFRESH_SECRET, { expiresIn: refreshExpiryTime })
+        }
+
+        return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: standardExpiryTime })
+    }
+    catch(e){
+        console.log('invalid payload sent to JWT write');
+    }
 }
 
 // TODO incorporate refresh tokens
 
-function read(token, refresh){
+async function read(token, refreshToken){
     try{
         let decoded = jwt.verify(token, process.env.JWT_SECRET);
-        return decoded;
+        return [decoded, false];
     }
-    catch(e){
-        if(refresh){
-            // do refresh token stuff here
+    catch(tokenError){
+        if(refreshToken){
+            try{
+                let refreshDecoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
+                return [refreshDecoded, true];
+            }
+            catch(RefreshTokenError){ // user is not authenticated
+                return [null, false]
+            }
         }
-        console.log(e);
+        console.log(typeof tokenError);
+        return [null, false];
     }
 }
 

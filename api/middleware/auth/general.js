@@ -3,9 +3,6 @@
 const jwt = require('../../../util/auth/jwt');
 
 module.exports = (req, res, next) => {
-    let encoded = req.cookies['jwt'];
-    if(encoded)
-        req.token = jwt.read(encoded);
-    console.log('authenticating the user');
+    // TODO add source verification and general accound middleware
     next();
 }

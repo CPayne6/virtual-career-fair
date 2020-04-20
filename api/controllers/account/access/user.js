@@ -1,6 +1,8 @@
-const cookies = require('../../../util/cookies');
-const db = require('../../../db');
-const userModel = require('../../../db/models/User');   // Temporary import remove when db controller is configured
+const cookies = require('../../../../util/cookies');
+const db = require('../../../../db');
+const bcrypt = require('../../../../util/bcrypt');
+
+const userModel = require('../../../../db/models/User');
 
 async function signup(req, res){
     let test = new userModel({  // for test purposes
@@ -43,18 +45,36 @@ async function signup(req, res){
 }
 
 async function login(req, res){
-    const body = req.body;
-    let doc = await db.user.findByEmail('test@queensu.ca');
-    console.log('jwt: '+req.token);
-    let token = req.jwt?{...req.token, user: doc._id}:{user:doc._id};
-    console.log('testjwt');
-    console.log(token);
-    cookies(token,res);
+    const {userPass, email} = req.body;
+    let doc = await db.user.findByEmail(email);
 
-    res.send(token);
+    if(await bcrypt.compare(userPass, doc.password)){
+        console.log('right password');
+
+        let token = { userID:doc._id }
+        cookies.storeUserToken(token, res);
+        cookies.storeUserRefreshToken(token, res);
+
+        let {password, refreshTokens, _id, ...response} = doc._doc; // extract the response from the model without the password, refresh tokens or id
+        res.send(response);
+    }
+    else{
+        console.log('wrong password');
+        res.send('unauthorized');
+    }
+}
+
+async function logout(){
+    
+}
+
+async function refresh(){
+    
 }
 
 module.exports = {
     login,
-    signup
+    signup,
+    logout,
+    refresh
 }
